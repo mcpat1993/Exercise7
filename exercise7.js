@@ -7,9 +7,8 @@ $('#toggleButton').click(function() {
     console.log("Downloading data...");
     $.ajax({//HOW THE HELL DO I GET THIS REQUEST TO SET FILENAME TO FILE1.TXT?????
         type: "POST",
-        url: "ajax/getData.php",
-        Filename: "file1.txt",
-        data: 'file1.txt',
+        url: "ajax/file1.txt",
+        data: {Filename: 'file1.txt'},
         success: function(data){
           alert(data);
           var t = document.createTextNode(data);
@@ -23,6 +22,21 @@ $('#toggleButton').click(function() {
     dataDownloaded = 1;
    }else
    {
+    if (document.getElementById("content").style.visibility === "hidden")
+    {
+      showText();
+    }else
+    {
+      hideText();
+    }
     console.log("Data has already been downloaded");
    }
 });
+
+function hideText() {
+    document.getElementById("content").style.visibility = "hidden"; 
+}
+
+function showText() {
+    document.getElementById("content").style.visibility = "visible"; 
+}
