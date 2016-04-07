@@ -7,10 +7,10 @@ $('#toggleButton').click(function() {
     console.log("Downloading data...");
     $.ajax({//HOW THE HELL DO I GET THIS REQUEST TO SET FILENAME TO FILE1.TXT?????
         type: "POST",
-        url: "ajax/file1.txt",
-        data: {Filename: 'file1.txt'},
+        url: "ajax/getData.php",
+        data: {file: 'file1.txt'},
         success: function(data){
-          alert(data);
+          //alert(data);
           var t = document.createTextNode(data);
           document.getElementById('content').appendChild(t);
         }
